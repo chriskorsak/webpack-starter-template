@@ -9,7 +9,10 @@ module.exports = {
     // hash will change on file change, good for browser caching
     filename: '[name][contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    //wipe out dist folder on build so files don't pile up
     clean: true,
+    //keep asset names as is
+    assetModuleFilename: '[name][ext]',
   },
   devtool: 'source-map',
   devServer: {
@@ -45,6 +48,10 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },
