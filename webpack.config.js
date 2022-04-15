@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { SourceMap } = require('module');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -60,5 +60,6 @@ module.exports = {
     filename: 'index.html',
     template: 'src/templates/template.html'
   }), 
-  ],
+  new ESLintPlugin(),  
+],
 };
